@@ -1,0 +1,9 @@
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'us-east1-docker.pkg.dev/veica-infra/caronte-repo/caronte-app:$COMMIT_SHA', '.']
+
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'us-east1-docker.pkg.dev/veica-infra/caronte-repo/caronte-app:$COMMIT_SHA']
+
+options:
+  logging: CLOUD_LOGGING_ONLY
